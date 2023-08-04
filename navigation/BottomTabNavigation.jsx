@@ -1,18 +1,69 @@
-import React from 'react';
-import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
-import Home from '../screens/Home';
-import Profile from '../screens/Profile';
-import Search from '../screens/Search';
+import React from "react";
+import { createBottomTabNavigator } from "@react-navigation/bottom-tabs";
+import Home from "../screens/Home";
+import Profile from "../screens/Profile";
+import Search from "../screens/Search";
+import { Ionicons } from "@expo/vector-icons";
+import { COLORS } from "../constants";
 
 const Tab = createBottomTabNavigator();
 
+const screenOptions = {
+  tabBarShowLabel: false,
+  tabBarHideOnKeyboard: true,
+  headerShown: false,
+  tabBarStyle: {
+    position: "absolute",
+    bottom: 0,
+    left: 0,
+    right: 0,
+    height: 70,
+  },
+};
+
 const BottomTabNavigation = () => {
   return (
-  <Tab.Navigator>
-    <Tab.Screen name='Home' component={Home}/>
-    <Tab.Screen name='Profile' component={Profile}/>
-    <Tab.Screen name='Search' component={Search}/>
-  </Tab.Navigator>
-  )
-}
-export default BottomTabNavigation
+    <Tab.Navigator screenOptions={screenOptions}>
+      <Tab.Screen
+        options={{
+          tabBarIcon: ({ focused }) => (
+            <Ionicons
+              name={focused ? "home" : "home-outline"}
+              size={24}
+              color={focused ? COLORS.primary : COLORS.gray2}
+            />
+          ),
+        }}
+        name="Home"
+        component={Home}
+      />
+      <Tab.Screen
+        name="Profile"
+        component={Profile}
+        options={{
+          tabBarIcon: ({ focused }) => (
+            <Ionicons
+              name={focused ? "person" : "person-outline"}
+              size={24}
+              color={focused ? COLORS.primary : COLORS.gray2}
+            />
+          ),
+        }}
+      />
+      <Tab.Screen
+        name="Search"
+        component={Search}
+        options={{
+          tabBarIcon: ({ focused }) => (
+            <Ionicons
+              name="search-sharp"
+              size={24}
+              color={focused ? COLORS.primary : COLORS.gray2}
+            />
+          ),
+        }}
+      />
+    </Tab.Navigator>
+  );
+};
+export default BottomTabNavigation;
