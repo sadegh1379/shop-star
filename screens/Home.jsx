@@ -3,26 +3,31 @@ import { SafeAreaView } from "react-native-safe-area-context";
 import { Ionicons, Fontisto } from "@expo/vector-icons";
 import { COLORS, SIZES } from "../constants";
 import { TouchableOpacity } from "react-native";
+import { ScrollView } from "react-native-gesture-handler";
+import Welcome from "../components/home/Welcome";
 
-const Home = () => {
+const Home = ({ navigation }) => {
   return (
     <SafeAreaView>
       <View style={styles.appBarWrapper}>
         <View style={styles.appBar}>
           <TouchableOpacity>
-            <Ionicons name="location-outline" size={24} />
+            <Ionicons name="location-outline" size={30} />
           </TouchableOpacity>
           <Text style={styles.location}>Tehran Iran</Text>
           <View style={{ alignItems: "flex-end" }}>
             <View style={styles.cartCount}>
               <Text style={styles.count}>8</Text>
             </View>
-            <TouchableOpacity>
+            <TouchableOpacity onPress={() => navigation.navigate('Cart')}>
               <Fontisto name="shopping-bag" size={24} />
             </TouchableOpacity>
           </View>
         </View>
       </View>
+      <ScrollView>
+        <Welcome/>
+      </ScrollView>
     </SafeAreaView>
   );
 };
