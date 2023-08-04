@@ -1,9 +1,10 @@
 import { StyleSheet, Text, View } from 'react-native'
+import { SafeAreaView } from 'react-native-safe-area-context'
 const ProductDetails = () => {
   return (
-    <View>
+    <SafeAreaView>
       <Text>ProductDetails</Text>
-    </View>
+    </SafeAreaView>
   )
 }
 export default ProductDetails
