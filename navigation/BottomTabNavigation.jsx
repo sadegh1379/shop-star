@@ -38,12 +38,12 @@ const BottomTabNavigation = () => {
         component={Home}
       />
       <Tab.Screen
-        name="Profile"
-        component={Profile}
+        name="Search"
+        component={Search}
         options={{
           tabBarIcon: ({ focused }) => (
             <Ionicons
-              name={focused ? "person" : "person-outline"}
+              name="search-sharp"
               size={24}
               color={focused ? COLORS.primary : COLORS.gray2}
             />
@@ -51,12 +51,12 @@ const BottomTabNavigation = () => {
         }}
       />
       <Tab.Screen
-        name="Search"
-        component={Search}
+        name="Profile"
+        component={Profile}
         options={{
           tabBarIcon: ({ focused }) => (
             <Ionicons
-              name="search-sharp"
+              name={focused ? "person" : "person-outline"}
               size={24}
               color={focused ? COLORS.primary : COLORS.gray2}
             />
