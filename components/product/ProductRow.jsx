@@ -5,12 +5,12 @@ import ProductCardView from "../card/ProductCardView";
 const ProductRow = () => {
   const products = [1, 2, 3, 4, 5];
   return (
-    <View style={{ marginTop: SIZES.medium }}>
+    <View style={{ marginTop: SIZES.xSmall }}>
       <FlatList
         data={products}
         renderItem={({ item }) => <ProductCardView />}
         horizontal
-        contentContainerStyle={{ columnGap: SIZES.medium }}
+        contentContainerStyle={{ columnGap: SIZES.small }}
       />
     </View>
   );
